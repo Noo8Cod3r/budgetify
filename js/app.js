@@ -29,8 +29,6 @@ let UIController = (() => {
 }) ()
 
 
-
-
 //GLOBAL APP CONTROLLER
 let controller = ((budgetCtrl, UICtrl) => {
 
