@@ -12,13 +12,8 @@ let budgetController = (() => {
     this.description = description
     this.value = value
   }
-
-  let allExpenses = []
-
-  let allIncomes = []
-
-  let totalExpenses = 0
-
+  
+  // Data Model
   let data = {
     allItems: {
       exp: [],
@@ -27,6 +22,23 @@ let budgetController = (() => {
     totals: {
       exp: 0,
       inc: 0
+    }
+  }
+
+  return {
+    addItem: (type, des, val) => {
+      let newItem;
+
+      if (type === 'exp') {
+        newItem = new Expense(ID, des, val)
+      } else if (type === 'inc') {
+        newItem = new Income(ID, des, val)
+      }
+
+      data.allItems[type].push(newItem)
+      return newItem
+      
+
     }
   }
 
