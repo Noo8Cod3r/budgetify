@@ -6,7 +6,16 @@ let budgetController = (() => {
 
 // UI CONTROLLER
 let UIController = (() => {
-
+  return {
+    getInput: () => {
+      return {
+        type: document.querySelector('.add__type').value,
+        description: document.querySelector('.add__description').value,
+        value: document.querySelector('.add__value').value,
+      }
+      
+    }
+  }
 }) ()
 
 
@@ -15,11 +24,12 @@ let controller = ((budgetCtrl, UICtrl) => {
 
   let ctrlAddItem = () => {
     // 1. Get Input Data
+    let input = UICtrl.getInput()
+    console.log(input)
     // 2. Add item to Budget controller
     // 3. Add new item to UI
     // 4. Calculate Budget
     // 5. Display Budget
-    console.log('On Click or Enter Add ...')
   }
 
   document.querySelector('.add__btn').addEventListener('click', ctrlAddItem )
