@@ -134,6 +134,14 @@ let controller = ((budgetCtrl, UICtrl) => {
     })
   }
 
+  let updateBudget = () => {
+    // Calculate Budget
+
+    //Return Budget
+
+    // Display Budget
+  }
+
   let ctrlAddItem = () => {
     let input, newItem
     // 1. Get Input Data
