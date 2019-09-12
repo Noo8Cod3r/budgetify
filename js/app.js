@@ -99,6 +99,19 @@ let UIController = (() => {
 
     },
 
+    clearFields: () => {
+      let fields, fieldsArr
+
+      fields = document.querySelectorAll(DOMStrings.inputDescription + ',' + DOMStrings.inputValue)
+
+      fieldsArr = Array.prototype.slice.call(fields)
+
+      fieldsArr.forEach((current, index, array) => {
+        current.value = "";
+      });
+      fieldsArr[0].focus()
+    },
+
     getDOMStrings: () => {
       return DOMStrings
     }
@@ -129,8 +142,10 @@ let controller = ((budgetCtrl, UICtrl) => {
     newItem = budgetCtrl.addItem(input.type, input.description, input.value)
     // 3. Add new item to UI
     UICtrl.addListItem(newItem, input.type)
-    // 4. Calculate Budget
-    // 5. Display Budget
+    // 4. Clear input fields
+    UICtrl.clearFields()
+    // 5. Calculate Budget
+    // 6. Display Budget
   }
 
   return {
