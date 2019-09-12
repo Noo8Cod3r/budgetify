@@ -6,12 +6,18 @@ let budgetController = (() => {
 
 // UI CONTROLLER
 let UIController = (() => {
+  let DOMStrings = {
+    inputType: '.add__type',
+    inputDescription: '.add__description',
+    inputValue: '.add__value'
+  }
+  
   return {
     getInput: () => {
       return {
-        type: document.querySelector('.add__type').value,
-        description: document.querySelector('.add__description').value,
-        value: document.querySelector('.add__value').value,
+        type: document.querySelector(DOMStrings.inputType).value,
+        description: document.querySelector(DOMStrings.inputDescription).value,
+        value: document.querySelector(DOMStrings.inputValue).value,
       }
       
     }
