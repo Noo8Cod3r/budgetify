@@ -44,7 +44,7 @@ let controller = ((budgetCtrl, UICtrl) => {
     // 5. Display Budget
   }
 
-  document.querySelector(DOM).addEventListener('click', ctrlAddItem )
+  document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem )
 
   document.addEventListener('keypress', e => {
     if ( e.keyCode === 13 || e.which === 13 ) {
