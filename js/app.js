@@ -1,4 +1,4 @@
-// BUDGET COntroller
+// BUDGET Controller
 let budgetController = (() => {
   // Some Code
 }) ()
@@ -29,6 +29,8 @@ let UIController = (() => {
 }) ()
 
 
+
+
 //GLOBAL APP CONTROLLER
 let controller = ((budgetCtrl, UICtrl) => {
 
@@ -44,12 +46,9 @@ let controller = ((budgetCtrl, UICtrl) => {
     })
   }
 
-  
-
   let ctrlAddItem = () => {
     // 1. Get Input Data
     let input = UICtrl.getInput()
-    console.log(input)
     // 2. Add item to Budget controller
     // 3. Add new item to UI
     // 4. Calculate Budget
