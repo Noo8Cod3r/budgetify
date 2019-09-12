@@ -9,9 +9,10 @@ let UIController = (() => {
   let DOMStrings = {
     inputType: '.add__type',
     inputDescription: '.add__description',
-    inputValue: '.add__value'
+    inputValue: '.add__value',
+    inputBtn: '.add__btn'
   }
-  
+
   return {
     getInput: () => {
       return {
@@ -20,6 +21,9 @@ let UIController = (() => {
         value: document.querySelector(DOMStrings.inputValue).value,
       }
       
+    },
+    getDOMStrings: () => {
+      return DOMStrings
     }
   }
 }) ()
@@ -27,6 +31,8 @@ let UIController = (() => {
 
 //GLOBAL APP CONTROLLER
 let controller = ((budgetCtrl, UICtrl) => {
+
+  let DOM = UICtrl.getDOMStrings()
 
   let ctrlAddItem = () => {
     // 1. Get Input Data
@@ -38,7 +44,7 @@ let controller = ((budgetCtrl, UICtrl) => {
     // 5. Display Budget
   }
 
-  document.querySelector('.add__btn').addEventListener('click', ctrlAddItem )
+  document.querySelector(DOM).addEventListener('click', ctrlAddItem )
 
   document.addEventListener('keypress', e => {
     if ( e.keyCode === 13 || e.which === 13 ) {
