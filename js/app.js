@@ -105,7 +105,10 @@ let UIController = (() => {
     inputBtn: '.add__btn',
     incomeContainer: '.income__list',
     expensesContainer: '.expenses__list',
-
+    budgetLabel: '.budget__value',
+    incomeLabel: '.budget__income--value',
+    expenseLabel: '.budget__expenses--value',
+    percentageLabel:'.budget__expenses--percentage',
   }
 
   return {
@@ -149,6 +152,10 @@ let UIController = (() => {
         current.value = "";
       });
       fieldsArr[0].focus()
+    },
+
+    displayBudget: (obj) => {
+      document.querySelector(DOMStrings)
     },
 
     getDOMStrings: () => {
