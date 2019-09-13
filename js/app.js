@@ -1,13 +1,13 @@
 // BUDGET Controller
 let budgetController = (() => {
 
-  let Expense = function(id, description, value){
+  let Expense = (id, description, value) => {
     this.id = id
     this.description = description
     this.value = value
   };
 
-  let Income = function(id, description, value){
+  let Income = (id, description, value) => {
     this.id = id
     this.description = description
     this.value = value
