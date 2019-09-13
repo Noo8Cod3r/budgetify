@@ -155,7 +155,16 @@ let UIController = (() => {
     },
 
     displayBudget: (obj) => {
-      document.querySelector(DOMStrings)
+      document.querySelector(DOMStrings.budgetLabel).textContent = obj.budget
+      document.querySelector(DOMStrings.incomeLabel).textContent = obj.totalInc
+      document.querySelector(DOMStrings.expenseLabel).textContent = obj.totalExp
+      
+
+      if (obj.percentage > 0 ){
+        document.querySelector(DOMStrings.percentageLabel).textContent = obj.percentage + '%'
+      }else {
+        document.querySelector(DOMStrings.percentageLabel).textContent = '---'
+      }
     },
 
     getDOMStrings: () => {
@@ -186,7 +195,7 @@ let controller = ((budgetCtrl, UICtrl) => {
     //Return Budget
     let budget = budgetCtrl.getBudget()
     // Display Budget
-    console.log(budget)
+    UICtrl.displayBudget(budget)
   }
 
   let ctrlAddItem = () => {
@@ -211,6 +220,12 @@ let controller = ((budgetCtrl, UICtrl) => {
   return {
     init: () => {
       console.log('Application has started')
+      UICtrl.displayBudget({
+        budget: 0,
+        totalInc: 0,
+        totalExp: 0,
+        percentage: -1
+      })
       setupEventListeners()
     }
   }
