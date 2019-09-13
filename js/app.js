@@ -109,6 +109,7 @@ let UIController = (() => {
     incomeLabel: '.budget__income--value',
     expenseLabel: '.budget__expenses--value',
     percentageLabel:'.budget__expenses--percentage',
+    container: '.container',
   }
 
   return {
@@ -125,10 +126,10 @@ let UIController = (() => {
       // Create HTML String w/Placholder
       if (type === 'inc') {
         element = DOMStrings.incomeContainer
-        html = '<div class="item clearfix" id="income-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        html = '<div class="item clearfix" id="inc-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
       } else if (type === 'exp') {
         element = DOMStrings.expensesContainer
-        html = '<div class="item clearfix" id="expense-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
+        html = '<div class="item clearfix" id="exp-%id%"><div class="item__description">%description%</div><div class="right clearfix"><div class="item__value">%value%</div><div class="item__percentage">21%</div><div class="item__delete"><button class="item__delete--btn"><i class="ion-ios-close-outline"></i></button></div></div></div>';
       }
 
       // Replace Placholder with Data
@@ -187,6 +188,8 @@ let controller = ((budgetCtrl, UICtrl) => {
         ctrlAddItem()
       }
     })
+
+    document.querySelector('DOM.container').addEventListener('click', ctrlDeleteItem)
   }
 
   let updateBudget = () => {
@@ -212,9 +215,11 @@ let controller = ((budgetCtrl, UICtrl) => {
       UICtrl.clearFields()
       // Calculate and update Budget
       updateBudget()
-    }
-    
-   
+    } 
+  }
+
+  let ctrlDeleteItem = (e) => {
+    console.log(e.target.parentNode.parentNode.parentNode.id)
   }
 
   return {
