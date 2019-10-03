@@ -189,7 +189,7 @@ let controller = ((budgetCtrl, UICtrl) => {
       }
     })
 
-    document.querySelector('DOM.container').addEventListener('click', ctrlDeleteItem)
+    document.querySelector(DOM.container).addEventListener('click', ctrlDeleteItem)
   }
 
   let updateBudget = () => {
