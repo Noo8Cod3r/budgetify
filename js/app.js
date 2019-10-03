@@ -61,7 +61,7 @@ let budgetController = (() => {
       
     },
     calculateBudget: () => {
-      // Calculate tottal income and expenses
+      // Calculate total income and expenses
       calculateTotal('inc')
       calculateTotal('exp')
 
